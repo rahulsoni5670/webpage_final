@@ -9,9 +9,8 @@ export default function Contact() {
         <div className="contact-info-container text-center lg:text-left">
           <h1 className="text-4xl font-extrabold text-cyan-400 tracking-wider">Contact Us!</h1>
 
-          <p className="text-lg text-gray-200">📞 <span className="text-cyan-400">+91 98765 43210</span></p>
-          <p className="text-lg text-gray-200">📧 <span className="text-cyan-400">contact@iei-events.com</span></p>
-          <p className="text-lg text-gray-200">📍 <span className="text-cyan-400">Institute of Engineers India, XYZ Campus, City Name</span></p>
+          <p className="text-lg text-gray-200">📧 <span className="text-cyan-400">iei_sc@thapar.edu</span></p>
+          <p className="text-lg text-gray-200">📍 <span className="text-cyan-400">The Institute of Engineers (India), TIET Patiala</span></p>
 
           <p className="text-lg text-gray-200 pt-4">
           📸 Follow us on Instagram:{" "}
