@@ -1,42 +1,155 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Reset and base styles */
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  background-color: #000;
+  color: #fff;
+  background-image: linear-gradient(45deg, rgba(30, 30, 30, 0.9), rgba(0, 0, 0, 0.8)), url('/space-background.jpg'); /* Space theme background */
+  background-size: cover;
+  background-position: center;
+  background-image: url('/home.png');
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Centering main content */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 80px; /* To avoid navbar overlap */
+  text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Typing animation */
+.typing-section {
+  margin-bottom: 2rem;
+}
+
+.typing-text {
+  font-size: 3rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #00c0ff; /* Glowing cyan cursor */
+  width: 20ch;
+  animation: typing 6s steps(20, end) infinite, blink 0.75s step-end infinite;
+  color: #ffffff; /* Glowing cyan text */
+}
+
+.cursor {
+  display: inline-block;
+}
+
+.sub-text {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: #fff; /* Adjusted text color for the subtext */
+}
+
+/* Typing keyframes */
+@keyframes typing {
+  0% {
+    width: 0;
   }
+  50% {
+    width: 20ch;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #00c0ff;
+  }
+}
+
+/* Background images */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.background-image {
+  width: 90vw;
+  max-width: 800px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  border: 2px solid #00c0ff; /* Glowing border effect for images */
+}
+
+.background-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 255, 255, 0.5); /* Glowing effect */
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+.delay-2 {
+  animation-delay: 0.6s;
+}
+.delay-3 {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hover effect on links */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff6600; /* Orange glow for links */
+}
+
+/* Navbar customization */
+#navbarSupportedContent {
+  background-color: #000 !important;
+  border-radius: 20px;
+}
+
+#navbarSupportedContent .nav-link {
+  color: #fff !important;
+}
+
+#navbarSupportedContent .nav-link:hover {
+  color: #00c0ff !important;
+}
+.box {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+.text-3xl font-bold mb-4 text-blue-400{
+  color: #00c0ff !important;
 }
