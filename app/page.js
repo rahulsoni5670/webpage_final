@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowImages(true);
-    }, 7000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -17,7 +17,7 @@ export default function Home() {
     <div className="main-container">
       <div className="typing-section">
         <h1 className="typing-text">
-          Welcome to IEI<span className="cursor">|</span>
+          Welcome to IEI<span className="cursor">!</span>
         </h1>
         <p className="sub-text">Explore events, meet sponsors, and more!</p>
       </div>
