@@ -59,7 +59,7 @@ export default function Events() {
           <h1
             className="fw-bold"
             style={{
-              fontSize: "9rem",
+              fontSize: "5.5rem",
               textShadow: "0 0 10px rgba(255, 255, 255, 0.8)",
             }}
           >
