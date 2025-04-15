@@ -34,13 +34,48 @@ body {
 .typing-text {
   font-size: 2.1rem;
   font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 0.15em solid #00c0ff; /* Glowing cyan cursor */
-  width: 20ch;
-  animation: typing 6s steps(20, end) infinite, blink 0.75s step-end infinite;
-  color: #ffffff; /* Glowing cyan text */
+  width: 0ch; /* Start from 0 */
+  display: inline-block;
+  animation: typing 6s steps(21, end) infinite, blink 0.75s step-end infinite;
+  border-right: 0.15em solid #00c0ff;
+  color: #ffffff;
+  will-change: width;
+  min-width: 0;
 }
+
+
+@keyframes typing {
+  0% {
+    width: 0ch;
+  }
+  50% {
+    width: 21ch;
+  }
+  100% {
+    width: 0ch;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #00c0ff;
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-text {
+    font-size: 1.5rem;
+  }
+}
+
+
+
 
 .cursor {
   display: inline-block;
@@ -58,7 +93,7 @@ body {
     width: 0;
   }
   50% {
-    width: 20ch;
+    width: 21ch;
   }
   100% {
     width: 0;
@@ -73,6 +108,7 @@ body {
     border-color: #00c0ff;
   }
 }
+
 
 /* Background images */
 .image-container {
@@ -179,3 +215,13 @@ a:hover {
 .navbar-toggler-icon::after {
   top: 8px;
 }
+/* Force text wrapping for typing text on small screens */
+@media (max-width: 500px) {
+  .typing-text {
+    white-space: normal !important;
+    width: auto !important;
+    font-size: 1.5rem; /* Optional: Reduce font size for better fit */
+    text-align: center;
+  }
+}
+
