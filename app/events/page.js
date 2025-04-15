@@ -3,7 +3,6 @@ import { useState, Suspense } from "react";
 
 export default function Events() {
   const [expandedIndex, setExpandedIndex] = useState(null);
-  const [showRulebook, setShowRulebook] = useState({});
 
   const events = [
     {
@@ -12,7 +11,7 @@ export default function Events() {
       details: "TO BE REVEALED SOON !!!",
     },
     {
-      title: "Gamers' Showdown",  // Changed the title here
+      title: "Gamers' Showdown",
       description: "Compete in the ultimate gaming showdown!",
       details:
         "Enjoy performances from various cultures including classical music, modern dance, and a grand fashion show.",
@@ -29,13 +28,6 @@ export default function Events() {
     setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
-  const toggleRulebook = (gameName) => {
-    setShowRulebook((prev) => ({
-      ...prev,
-      [gameName]: !prev[gameName],
-    }));
-  };
-
   return (
     <div
       className="d-flex flex-column justify-content-center align-items-center p-4"
@@ -44,7 +36,6 @@ export default function Events() {
         width: "100%",
       }}
     >
-      {/* Top Banner */}
       <div
         className="card text-center text-white mb-4"
         style={{
@@ -68,8 +59,8 @@ export default function Events() {
           <h1
             className="fw-bold"
             style={{
-              fontSize: "9rem", // Increase this to make it even bigger
-              textShadow: "0 0 10px rgba(255, 255, 255, 0.8)", // optional glow effect
+              fontSize: "9rem",
+              textShadow: "0 0 10px rgba(255, 255, 255, 0.8)",
             }}
           >
             ORION
@@ -80,16 +71,17 @@ export default function Events() {
         </div>
       </div>
 
-      {/* Event Cards Container */}
       <div className="d-flex flex-column gap-4 align-items-center w-100">
         {events.map((event, index) => {
-          const isEsports = event.title === "Gamers' Showdown";  // Updated title check
+          const isEsports = event.title === "Gamers' Showdown";
           const isSpeaker = event.title.startsWith("Speaker Session");
           const backgroundImage = isEsports
             ? "url('/esports.jpg')"
             : isSpeaker
             ? "url('/speakerSession.png')"
             : "none";
+
+          const isExpanded = expandedIndex === index;
 
           return (
             <div
@@ -109,8 +101,8 @@ export default function Events() {
                 className="card-body"
                 style={{
                   backgroundColor: "rgba(0, 0, 0, 0.6)",
-                  borderRadius: "12px", // Adding rounded corners to the card body
-                  boxShadow: "0 0 15px rgba(173, 216, 230, 0.5)", // Soft shadow for the card
+                  borderRadius: "12px",
+                  boxShadow: "0 0 15px rgba(173, 216, 230, 0.5)",
                 }}
               >
                 <h5 className="card-title">{event.title}</h5>
@@ -119,10 +111,16 @@ export default function Events() {
                   onClick={() => toggleExpand(index)}
                   className="btn btn-light"
                 >
-                  {expandedIndex === index ? "Show Less" : "Register"}
+                  {isExpanded ? "Show Less" : "Register"}
                 </button>
 
-                {expandedIndex === index && (
+                {!isExpanded && (
+                  <span className="d-block mt-2 text-info fw-semibold">
+                    <i className="bi bi-info-circle me-1"></i> Use your Thapar ID to register
+                  </span>
+                )}
+
+                {isExpanded && (
                   <div className="mt-4 border-top pt-4">
                     <p className="mb-4">{event.details}</p>
 
@@ -184,107 +182,10 @@ export default function Events() {
                                     Register
                                   </a>
                                 )}
-
-                                <button
-                                  className="btn btn-outline-info border border-white"
-                                  onClick={() => toggleRulebook(game.name)}
-                                >
-                                  {showRulebook[game.name]
-                                    ? "Hide Rulebook"
-                                    : "Show Rulebook"}
-                                </button>
                               </div>
-
-                              {showRulebook[game.name] && (
-                                <div className="mt-3 text-start px-3 text-white">
-                                  <p>
-                                    Here are the rules and guidelines for{" "}
-                                    <strong>{game.name}</strong>. Make sure to
-                                    follow the instructions carefully to ensure
-                                    fair play and a smooth tournament.
-                                  </p>
-
-                                  {game.name === "BGMI" && (
-                                    <div>
-                                      <h5>BGMI Tournament Rules:</h5>
-                                      <ul>
-                                        <li>
-                                          Players must use their own devices and
-                                          ensure stable internet.
-                                        </li>
-                                        <li>
-                                          Emulator players are not allowed.
-                                        </li>
-                                        <li>
-                                          Teams will be grouped into custom rooms
-                                          managed by the organizers.
-                                        </li>
-                                        <li>
-                                          Map Pool: Erangel, Miramar, and Sanhok
-                                          (subject to change)
-                                        </li>
-                                        <li>Game Mode: Squad - TPP</li>
-                                        <li>
-                                          Only one player can register per device.
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  )}
-
-                                  {game.name === "FIFA" && (
-                                    <div>
-                                      <h5>FIFA Tournament Rules:</h5>
-                                      <ul>
-                                        <li>
-                                          Players must use their own devices and
-                                          ensure stable internet.
-                                        </li>
-                                        <li>
-                                          Game mode will be 1v1 in knockout rounds.
-                                        </li>
-                                        <li>
-                                          All matches will be played in Ultimate
-                                          Team mode.
-                                        </li>
-                                        <li>
-                                          Only official FIFA versions are allowed.
-                                        </li>
-                                        <li>
-                                          Players must follow fair play guidelines
-                                          and respect others.
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  )}
-
-                                  {game.name === "Valorant" && (
-                                    <div>
-                                      <h5>Valorant Tournament Rules:</h5>
-                                      <ul>
-                                        <li>
-                                          Players must use their own devices and
-                                          ensure stable internet.
-                                        </li>
-                                        <li>
-                                          Emulator players are not allowed.
-                                        </li>
-                                        <li>
-                                          Teams will be grouped into custom rooms
-                                          managed by the organizers.
-                                        </li>
-                                        <li>
-                                          Map Pool: Bind, Haven, Ascent (subject to
-                                          change)
-                                        </li>
-                                        <li>
-                                          Game Mode: 5v5, Team Deathmatch, and
-                                          Search & Destroy
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  )}
-                                </div>
-                              )}
+                              <span className="d-block mt-2 text-info fw-semibold">
+                                <i className="bi bi-info-circle me-1"></i> Use your Thapar ID to register
+                              </span>
                             </div>
                           </div>
                         ))}
