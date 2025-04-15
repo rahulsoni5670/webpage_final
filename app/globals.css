@@ -135,7 +135,7 @@ a:hover {
 
 /* Navbar customization */
 #navbarSupportedContent {
-  background-color: #000 !important;
+  background-color: #000000 !important;
   border-radius: 20px;
 }
 
@@ -152,4 +152,30 @@ a:hover {
 }
 .text-3xl font-bold mb-4 text-blue-400{
   color: #00c0ff !important;
+}
+/* Make hamburger icon lines solid white and bold */
+.navbar-toggler-icon {
+  background-image: none;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  left: 0;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
 }
