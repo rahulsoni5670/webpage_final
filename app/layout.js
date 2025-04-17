@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <BootstrapClient />
       <body>
-        <nav className="navbar navbar-expand-lg" style={{ backgroundColor: 'black' }}>
+        <nav className="navbar navbar-expand-lg" style={{ backgroundColor: 'black', position: 'sticky' , width: '100%', zIndex: 1000 }}>
           <div className="container-fluid">
             {/* Left-side logo */}
             <a className="navbar-brand" href="/">
