@@ -40,10 +40,7 @@ export default function Events() {
   return (
     <div
       className="d-flex flex-column justify-content-center align-items-center p-4"
-      style={{
-        minHeight: "100vh",
-        width: "100%",
-      }}
+      style={{ minHeight: "100vh", width: "100%" }}
     >
       <div
         className="card text-center text-white mb-4"
@@ -224,8 +221,8 @@ export default function Events() {
                                   </a>
                                 )}
                               </div>
-                              <span className="d-block mt-2 text-info fw-semibold">
-                                <i className="bi bi-info-circle me-1"></i> Use your Thapar ID to register
+                              <span className="d-block mt-2 fw-bold text-danger">
+                                <i className="bi bi-exclamation-circle me-1"></i> Forms extended till 11 PM tonight!
                               </span>
                             </div>
                           </div>
