@@ -17,7 +17,7 @@ export default function Home() {
     <div className="main-container">
       <div className="typing-section">
         <h1 className="typing-text">
-          Welcome to IEI<span className="cursor">!</span>
+          Welcome to IEI!
         </h1>
         <p className="sub-text">Explore events, meet sponsors, and more!</p>
       </div>
