@@ -14,7 +14,9 @@ body {
   background-position: center;
   background-image: url('/home.png');
 }
-
+.navbar{
+  position: fixed !important; 
+}
 /* Centering main content */
 .main-container {
   display: flex;
