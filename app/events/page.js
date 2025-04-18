@@ -7,7 +7,7 @@ export default function Events() {
 
   const events = [
     {
-      title: "Speaker Session (Coming soon...)",
+      title: "Speaker Session",
       description: "Join us for an inspiring talk by industry leaders.",
       details: "TO BE REVEALED SOON !!!",
     },
