@@ -222,7 +222,7 @@ export default function Events() {
                                 )}
                               </div>
                               <span className="d-block mt-2 fw-bold text-danger">
-                                <i className="bi bi-exclamation-circle me-1"></i> Forms extended till 11 PM tonight!
+                                <i className="bi bi-exclamation-circle me-1"></i> Form has been closed!
                               </span>
                             </div>
                           </div>
